@@ -1,0 +1,29 @@
+
+{
+  "name": "choices-choices-the-tech-stack",
+  "version": "1.0.0",
+  "description": "Onderzoek een andere tech-stack voor het ontwerpen en bouwen van een website voor een opdrachtgever.",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Svenvandijk22/choices-choices-the-tech-stack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Svenvandijk22/choices-choices-the-tech-stack/issues"
+  },
+  "homepage": "https://github.com/Svenvandijk22/choices-choices-the-tech-stack#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8"
+  }
+}

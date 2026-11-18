@@ -1,0 +1,57 @@
+
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<section class="treatment-section" aria-labelledby="behandelingstitel">
+
+  <header class="page-header">
+    <h1 id="behandelingstitel">{{ title }}</h1>
+    <p class="subtitle">{{ subtitle }}</p>
+  </header>
+
+  <div class="treatment-header" aria-hidden="true">
+    <span>Beschrijving</span>
+    <span>Datum</span>
+  </div>
+
+  <ul class="treatment-list">
+    {% for behandeling in behandelingen %}
+      <li>
+        <a
+          href="/behandelingen/{{ behandeling.id }}/"
+          class="treatment-card"
+          aria-labelledby="titel-{{ behandeling.id }}"
+          aria-describedby="datum-{{ behandeling.id }}"
+        >
+          <article>
+            <header class="treatment-info">
+              <p class="label">Beschrijving</p>
+
+              <h2 id="titel-{{ behandeling.id }}" class="title">
+                {{ behandeling.beschrijving or 'Geen beschrijving' }}
+              </h2>
+            </header>
+
+            <div class="date-block">
+              <p class="label">Datum</p>
+
+              <time
+                id="datum-{{ behandeling.id }}"
+                class="date"
+                datetime="{{ behandeling.datum }}"
+              >
+                {{ behandeling.datum }}
+              </time>
+            </div>
+
+            <span class="arrow" aria-hidden="true">→</span>
+          </article>
+        </a>
+      </li>
+    {% else %}
+      <li>Er zijn geen behandelingen gevonden.</li>
+    {% endfor %}
+  </ul>
+
+</section>
+{% endblock %}

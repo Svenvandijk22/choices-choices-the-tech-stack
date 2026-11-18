@@ -1,0 +1,188 @@
+
+:root {
+  --primary-color-dark: #124b88;
+  --primary-color-light: #4584bc;
+  --color-blue-tint: #eaf4ff;
+
+  --font-regular: Arial, sans-serif;
+  --font-semibold: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: var(--primary-color-dark);
+  font-family: var(--font-regular);
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 1.5rem 1.75rem;
+}
+
+/* Pagina */
+
+.treatment-section {
+  width: 100%;
+}
+
+/* Paginatitel */
+
+.page-header {
+  margin-bottom: 4rem;
+
+  h1 {
+    margin: 0 0 0.25rem;
+    color: var(--primary-color-dark);
+    font-family: var(--font-semibold);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--primary-color-dark);
+  }
+}
+
+/* Kolomnamen */
+
+.treatment-header {
+  display: none;
+}
+
+/* Behandelingenlijst */
+
+.treatment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Behandelkaart */
+
+.treatment-card {
+  display: block;
+  position: relative;
+
+  padding: 1rem;
+  border-radius: 0.4rem;
+
+  background-color: var(--color-blue-tint);
+  color: var(--primary-color-dark);
+  text-decoration: none;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background-color: #dbeeff;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color-dark);
+    outline-offset: 3px;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .label {
+    margin: 0 0 0.25rem;
+    font-size: 0.75rem;
+    color: #50739a;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary-color-dark);
+  }
+
+  .date-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .date {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--primary-color-dark);
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+
+    transform: translateY(-50%);
+
+    font-size: 1.5rem;
+    color: var(--primary-color-dark);
+  }
+}
+
+/* Tablet en desktop */
+
+@media (min-width: 640px) {
+  .treatment-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 11rem 1.5rem;
+    gap: 1rem;
+
+    padding: 0 1rem 0.5rem;
+    margin-bottom: 0.75rem;
+
+    border-bottom: 1px solid #dce4ee;
+
+    font-size: 0.75rem;
+    color: var(--primary-color-dark);
+  }
+
+  .treatment-header span:nth-child(2) {
+    grid-column: 2;
+  }
+
+  .treatment-card {
+    padding: 1.25rem 1rem;
+
+    article {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 11rem 1.5rem;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .label {
+      display: none;
+    }
+
+    .date-block {
+      grid-column: 2;
+    }
+
+    .arrow {
+      position: static;
+      grid-column: 3;
+      transform: none;
+      justify-self: end;
+    }
+  }
+}
